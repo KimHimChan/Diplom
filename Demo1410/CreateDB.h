@@ -214,7 +214,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 				 MessageBox::Show("Файл успешно создан", "Сообщение", MessageBoxButtons::OK, 
 							 MessageBoxIcon::Information);
 				 this->DialogResult = System::Windows::Forms::DialogResult::OK;
-				 title_name = label3->Text;
+				 title_name = L"МБД-файл: " + label3->Text;
 				 this->Close();
 			 }
 			 catch(...)
@@ -227,7 +227,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 						 // Снова скопировать файл
 						 IO::File::Copy (Application::StartupPath + L"\\FOND.mdb", str_path, false);
 						 this->DialogResult = System::Windows::Forms::DialogResult::OK; // Вернуть OK
-						 title_name = label3->Text; //Имя подключенного МБД-файла
+						 title_name = L"МБД-файл: " + label3->Text; //Имя подключенного МБД-файла
 						 this->Close();
 					}
 				 }

@@ -75,6 +75,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="*Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="*System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="*System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="*System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -90,6 +96,8 @@
     <ClCompile Include="ConnectionDB.cpp" />
     <ClCompile Include="CreateDB.cpp" />
     <ClCompile Include="Demo1410.cpp" />
+    <ClCompile Include="EnterTask.cpp" />
+    <ClCompile Include="EnterTheme.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -100,6 +108,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CreateDB.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EnterTask.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EnterTheme.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Form1.h">
@@ -117,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateDB.resx">
       <DependentUpon>CreateDB.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterTask.resx">
+      <DependentUpon>EnterTask.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterTheme.resx">
+      <DependentUpon>EnterTheme.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
