@@ -768,8 +768,9 @@ namespace Demo1410 {
 	private:
 		DataSet^ dataSet; //источник данных
 		String^ baseName; //путь до базы
-		String^ name; //наименование темы
-		int min_sloj, max_sloj, min_trud, max_trud; //мин и макс сложность и трудоескость
+		String^ name;  //наименование темы
+		String^ id; //номер темы
+		int min_sloj, max_sloj, min_trud, max_trud; //ин и макс сложность и трудоескость
 		int sloj, trud; //сложностьб трудоемкость
 		String^ img; //путь к картинке
 		int flag; //переход к темам/задачам
@@ -812,7 +813,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 			 conn->Open();
 			 //id темы
 			 OleDbCommand^ cmd_id = gcnew OleDbCommand("SELECT ID FROM Tema WHERE [Names] = '" + name + "'", conn);
-			 String^ id_str = cmd_id->ExecuteScalar()->ToString();
+			 id = cmd_id->ExecuteScalar()->ToString();
 			 //выбор мин сложности
 			 OleDbCommand^ cmd_min_sloj = gcnew OleDbCommand("SELECT Sloj_min FROM Tema WHERE [Names] = '" + name + "'", conn);
 			 String^ min_sloj_str = cmd_min_sloj->ExecuteScalar()->ToString();
@@ -841,28 +842,20 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 				 }
 			 }
 
-			 textBox1->Text = id_str;
+			 textBox1->Text = id;
 			 //отображение задач только потекущей теме
 			 bindingSource2->Filter = "ID_tema = '" + textBox1->Text + "'";
-
-			 bindingSource2->Filter = String::Format("CONVERT(ID_tema, System.String) LIKE '{0}'", textBox1->Text);
 		 }
 
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-
-			 bindingSource2->Filter = "";
-			 
 			 String^ sl = comboBox2->Text->Substring(0, comboBox2->Text->IndexOf(","));	//сложность
 			 String^ tr = comboBox2->Text->Substring(comboBox2->Text->IndexOf(",") + 1);	//трудоемкость
 
+			 textBox1->Text = id;
 			 textBox2->Text = sl;
 			 textBox3->Text = tr;
-
-			 
-			 
-			 bindingSource2->Filter = String::Format("CONVERT(ID_tema, System.String) LIKE '{0}' AND CONVERT(Sloj, System.String) LIKE '{1}' AND CONVERT(Trud, System.String) LIKE '{2}'", textBox1->Text, textBox2->Text, textBox3->Text);
-
-			 
+			 //вывод задач только с заданной сложностью и трудоемкостью
+			 bindingSource2->Filter = "[ID_tema] = '" + textBox1->Text + "' AND [Sloj] = '" + textBox2->Text + "' AND [Trud] = '" + textBox3->Text + "'";
 		 }
 
 private: System::Void EnterTicket_Shown(System::Object^  sender, System::EventArgs^  e) {
