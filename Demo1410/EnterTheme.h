@@ -425,7 +425,6 @@ namespace Demo1410 {
 	private:
 		DataSet^ dataSet; //источник данных
 		int flag; // флаг для просмотра(0), добавления(1), редактирования(2)
-		int check; //проверка для ввода(0 - не нужна, 1 - нужна)
 
 		//Загрузка формы
 	private: System::Void Load_Form(System::Object^  sender, System::EventArgs^  e) {
@@ -469,7 +468,7 @@ private: System::Void Insert_Click(System::Object^  sender, System::EventArgs^  
 		 //кнопка добавить на навигаторе
 private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 BtnGridEnabledFalse(); //навигатор и грид не доступны
-			 bindingNavigatorAddNewItem->Enabled = false; //кнопка Добавить доступна
+			 bindingNavigatorAddNewItem->Enabled = false; //кнопка Добавить не доступна
 			 toolStripButton1->Enabled = false; //кнопка Редактировать не доступна
 			 bindingNavigatorDeleteItem->Enabled = true; //кнопка Удалить доступна
 			 toolStripButton2->Enabled = false; //кнопка СохранитьИзменения не доступна
@@ -482,7 +481,6 @@ private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, 
 			 button1->Enabled = false; //кнопка ОК не активна
 			 textBox1->Focus(); //фокус передан полю ввода
 			 flag = 1; //включен режим добавления
-			 //check = 0; //проверка не нужна
 		 }
 
 		 //кнопка редактировать на навигаторе
@@ -501,7 +499,6 @@ private: System::Void toolStripButton1_Click(System::Object^  sender, System::Ev
 			 textBox3->Enabled = true;
 			 textBox4->Enabled = true;
 			 textBox5->Enabled = true;
-			 //check = 1; //проверка нужна
 		 }
 
 		 //кнопка удалить на навигаторе

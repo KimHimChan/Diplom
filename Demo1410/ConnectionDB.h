@@ -169,8 +169,7 @@ namespace Demo1410 {
 						 conn->Close();
 
 						 this->button3->Enabled = true;
-						 MessageBox::Show("Файл успешно подключен", "Сообщение", MessageBoxButtons::OK, 
-							 MessageBoxIcon::Information);
+						 MessageBox::Show("Файл успешно подключен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 						 title_name = L"МБД-файл: " + label3->Text;
 					 }
 					 catch(...)

@@ -5,6 +5,7 @@
 #include "CreateDB.h"
 #include "EnterTheme.h"
 #include "EnterTask.h"
+#include "EnterTicket.h"
 
 namespace Demo1410 {
 
@@ -96,6 +97,11 @@ namespace Demo1410 {
 	private: System::Data::DataColumn^  dataColumn11;
 	private: System::Data::DataColumn^  dataColumn12;
 	private: System::Data::DataColumn^  dataColumn13;
+	private: System::Data::OleDb::OleDbCommand^  oleDbSelectCommand2;
+	private: System::Data::OleDb::OleDbCommand^  oleDbInsertCommand2;
+	private: System::Data::OleDb::OleDbCommand^  oleDbUpdateCommand2;
+	private: System::Data::OleDb::OleDbCommand^  oleDbDeleteCommand2;
+	private: System::Data::OleDb::OleDbDataAdapter^  ZadachaDbDataAdapter1;
 
 
 
@@ -172,6 +178,11 @@ namespace Demo1410 {
 			this->dataColumn11 = (gcnew System::Data::DataColumn());
 			this->dataColumn12 = (gcnew System::Data::DataColumn());
 			this->dataColumn13 = (gcnew System::Data::DataColumn());
+			this->oleDbSelectCommand2 = (gcnew System::Data::OleDb::OleDbCommand());
+			this->oleDbInsertCommand2 = (gcnew System::Data::OleDb::OleDbCommand());
+			this->oleDbUpdateCommand2 = (gcnew System::Data::OleDb::OleDbCommand());
+			this->oleDbDeleteCommand2 = (gcnew System::Data::OleDb::OleDbCommand());
+			this->ZadachaDbDataAdapter1 = (gcnew System::Data::OleDb::OleDbDataAdapter());
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataSet1))->BeginInit();
@@ -404,7 +415,8 @@ namespace Demo1410 {
 				this->dataColumn3, this->dataColumn4, this->dataColumn5, this->dataColumn6});
 			cli::array< System::String^ >^ __mcTemp__2 = gcnew cli::array< System::String^  >(1) {L"ID"};
 			this->dataTable1->Constraints->AddRange(gcnew cli::array< System::Data::Constraint^  >(1) {(gcnew System::Data::UniqueConstraint(L"Constraint1", 
-				__mcTemp__2, false))});
+				__mcTemp__2, true))});
+			this->dataTable1->PrimaryKey = gcnew cli::array< System::Data::DataColumn^  >(1) {this->dataColumn1};
 			this->dataTable1->TableName = L"Tema";
 			// 
 			// dataColumn1
@@ -442,10 +454,19 @@ namespace Demo1410 {
 			// 
 			this->dataTable2->Columns->AddRange(gcnew cli::array< System::Data::DataColumn^  >(7) {this->dataColumn7, this->dataColumn8, 
 				this->dataColumn9, this->dataColumn10, this->dataColumn11, this->dataColumn12, this->dataColumn13});
+			cli::array< System::String^ >^ __mcTemp__3 = gcnew cli::array< System::String^  >(1) {L"ID"};
+			cli::array< System::String^ >^ __mcTemp__4 = gcnew cli::array< System::String^  >(1) {L"ID_tema"};
+			cli::array< System::String^ >^ __mcTemp__5 = gcnew cli::array< System::String^  >(1) {L"ID"};
+			this->dataTable2->Constraints->AddRange(gcnew cli::array< System::Data::Constraint^  >(2) {(gcnew System::Data::ForeignKeyConstraint(L"Tema_Zadacha", 
+				L"Tema", __mcTemp__3, __mcTemp__4, System::Data::AcceptRejectRule::None, System::Data::Rule::Cascade, System::Data::Rule::Cascade)), 
+				(gcnew System::Data::UniqueConstraint(L"Constraint1", __mcTemp__5, true))});
+			this->dataTable2->PrimaryKey = gcnew cli::array< System::Data::DataColumn^  >(1) {this->dataColumn7};
 			this->dataTable2->TableName = L"Zadacha";
 			// 
 			// dataColumn7
 			// 
+			this->dataColumn7->AllowDBNull = false;
+			this->dataColumn7->AutoIncrement = true;
 			this->dataColumn7->ColumnName = L"ID";
 			this->dataColumn7->DataType = System::Int16::typeid;
 			// 
@@ -466,16 +487,107 @@ namespace Demo1410 {
 			// dataColumn11
 			// 
 			this->dataColumn11->ColumnName = L"Trud";
-			this->dataColumn11->DataType = System::Double::typeid;
+			this->dataColumn11->DataType = System::Byte::typeid;
 			// 
 			// dataColumn12
 			// 
 			this->dataColumn12->ColumnName = L"Type_otvet";
-			this->dataColumn12->DataType = System::Char::typeid;
 			// 
 			// dataColumn13
 			// 
 			this->dataColumn13->ColumnName = L"Img";
+			// 
+			// oleDbSelectCommand2
+			// 
+			this->oleDbSelectCommand2->CommandText = L"SELECT        Zadacha.*\r\nFROM            Zadacha";
+			this->oleDbSelectCommand2->Connection = this->oleDbConnection1;
+			// 
+			// oleDbInsertCommand2
+			// 
+			this->oleDbInsertCommand2->CommandText = L"INSERT INTO `Zadacha` (`ID_tema`, `Text`, `Sloj`, `Trud`, `Type_otvet`, `Img`) VA" 
+				L"LUES (\?, \?, \?, \?, \?, \?)";
+			this->oleDbInsertCommand2->Connection = this->oleDbConnection1;
+			this->oleDbInsertCommand2->Parameters->AddRange(gcnew cli::array< System::Data::OleDb::OleDbParameter^  >(6) {(gcnew System::Data::OleDb::OleDbParameter(L"ID_tema", 
+				System::Data::OleDb::OleDbType::Integer, 0, L"ID_tema")), (gcnew System::Data::OleDb::OleDbParameter(L"Text", System::Data::OleDb::OleDbType::LongVarWChar, 
+				0, L"Text")), (gcnew System::Data::OleDb::OleDbParameter(L"Sloj", System::Data::OleDb::OleDbType::UnsignedTinyInt, 0, L"Sloj")), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"Trud", System::Data::OleDb::OleDbType::Single, 0, L"Trud")), (gcnew System::Data::OleDb::OleDbParameter(L"Type_otvet", 
+				System::Data::OleDb::OleDbType::VarWChar, 0, L"Type_otvet")), (gcnew System::Data::OleDb::OleDbParameter(L"Img", System::Data::OleDb::OleDbType::VarWChar, 
+				0, L"Img"))});
+			// 
+			// oleDbUpdateCommand2
+			// 
+			this->oleDbUpdateCommand2->CommandText = resources->GetString(L"oleDbUpdateCommand2.CommandText");
+			this->oleDbUpdateCommand2->Connection = this->oleDbConnection1;
+			this->oleDbUpdateCommand2->Parameters->AddRange(gcnew cli::array< System::Data::OleDb::OleDbParameter^  >(17) {(gcnew System::Data::OleDb::OleDbParameter(L"ID_tema", 
+				System::Data::OleDb::OleDbType::Integer, 0, L"ID_tema")), (gcnew System::Data::OleDb::OleDbParameter(L"Text", System::Data::OleDb::OleDbType::LongVarWChar, 
+				0, L"Text")), (gcnew System::Data::OleDb::OleDbParameter(L"Sloj", System::Data::OleDb::OleDbType::UnsignedTinyInt, 0, L"Sloj")), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"Trud", System::Data::OleDb::OleDbType::Single, 0, L"Trud")), (gcnew System::Data::OleDb::OleDbParameter(L"Type_otvet", 
+				System::Data::OleDb::OleDbType::VarWChar, 0, L"Type_otvet")), (gcnew System::Data::OleDb::OleDbParameter(L"Img", System::Data::OleDb::OleDbType::VarWChar, 
+				0, L"Img")), (gcnew System::Data::OleDb::OleDbParameter(L"Original_ID", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"ID", System::Data::DataRowVersion::Original, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"IsNull_ID_tema", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"ID_tema", System::Data::DataRowVersion::Original, true, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"Original_ID_tema", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"ID_tema", System::Data::DataRowVersion::Original, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Sloj", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Sloj", System::Data::DataRowVersion::Original, true, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"Original_Sloj", System::Data::OleDb::OleDbType::UnsignedTinyInt, 0, System::Data::ParameterDirection::Input, 
+				false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Sloj", System::Data::DataRowVersion::Original, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Trud", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Trud", System::Data::DataRowVersion::Original, true, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"Original_Trud", System::Data::OleDb::OleDbType::Single, 0, System::Data::ParameterDirection::Input, 
+				false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Trud", System::Data::DataRowVersion::Original, nullptr)), 
+				(gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Type_otvet", System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, 
+				static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Type_otvet", System::Data::DataRowVersion::Original, true, 
+				nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Type_otvet", System::Data::OleDb::OleDbType::VarWChar, 0, 
+				System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Type_otvet", 
+				System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Img", System::Data::OleDb::OleDbType::Integer, 
+				0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Img", System::Data::DataRowVersion::Original, 
+				true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Img", System::Data::OleDb::OleDbType::VarWChar, 0, 
+				System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), static_cast<System::Byte>(0), L"Img", System::Data::DataRowVersion::Original, 
+				nullptr))});
+			// 
+			// oleDbDeleteCommand2
+			// 
+			this->oleDbDeleteCommand2->CommandText = resources->GetString(L"oleDbDeleteCommand2.CommandText");
+			this->oleDbDeleteCommand2->Connection = this->oleDbConnection1;
+			this->oleDbDeleteCommand2->Parameters->AddRange(gcnew cli::array< System::Data::OleDb::OleDbParameter^  >(11) {(gcnew System::Data::OleDb::OleDbParameter(L"Original_ID", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"ID", System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_ID_tema", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), 
+				L"ID_tema", System::Data::DataRowVersion::Original, true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_ID_tema", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"ID_tema", System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Sloj", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), 
+				L"Sloj", System::Data::DataRowVersion::Original, true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Sloj", 
+				System::Data::OleDb::OleDbType::UnsignedTinyInt, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"Sloj", System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Trud", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), 
+				L"Trud", System::Data::DataRowVersion::Original, true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Trud", 
+				System::Data::OleDb::OleDbType::Single, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"Trud", System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Type_otvet", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), 
+				L"Type_otvet", System::Data::DataRowVersion::Original, true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Type_otvet", 
+				System::Data::OleDb::OleDbType::VarWChar, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"Type_otvet", System::Data::DataRowVersion::Original, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"IsNull_Img", 
+				System::Data::OleDb::OleDbType::Integer, 0, System::Data::ParameterDirection::Input, static_cast<System::Byte>(0), static_cast<System::Byte>(0), 
+				L"Img", System::Data::DataRowVersion::Original, true, nullptr)), (gcnew System::Data::OleDb::OleDbParameter(L"Original_Img", 
+				System::Data::OleDb::OleDbType::VarWChar, 0, System::Data::ParameterDirection::Input, false, static_cast<System::Byte>(0), 
+				static_cast<System::Byte>(0), L"Img", System::Data::DataRowVersion::Original, nullptr))});
+			// 
+			// ZadachaDbDataAdapter1
+			// 
+			this->ZadachaDbDataAdapter1->DeleteCommand = this->oleDbDeleteCommand2;
+			this->ZadachaDbDataAdapter1->InsertCommand = this->oleDbInsertCommand2;
+			this->ZadachaDbDataAdapter1->SelectCommand = this->oleDbSelectCommand2;
+			cli::array< System::Data::Common::DataColumnMapping^ >^ __mcTemp__6 = gcnew cli::array< System::Data::Common::DataColumnMapping^  >(7) {(gcnew System::Data::Common::DataColumnMapping(L"ID", 
+				L"ID")), (gcnew System::Data::Common::DataColumnMapping(L"ID_tema", L"ID_tema")), (gcnew System::Data::Common::DataColumnMapping(L"Text", 
+				L"Text")), (gcnew System::Data::Common::DataColumnMapping(L"Sloj", L"Sloj")), (gcnew System::Data::Common::DataColumnMapping(L"Trud", 
+				L"Trud")), (gcnew System::Data::Common::DataColumnMapping(L"Type_otvet", L"Type_otvet")), (gcnew System::Data::Common::DataColumnMapping(L"Img", 
+				L"Img"))};
+			this->ZadachaDbDataAdapter1->TableMappings->AddRange(gcnew cli::array< System::Data::Common::DataTableMapping^  >(1) {(gcnew System::Data::Common::DataTableMapping(L"Table", 
+				L"Zadacha", __mcTemp__6))});
+			this->ZadachaDbDataAdapter1->UpdateCommand = this->oleDbUpdateCommand2;
 			// 
 			// Form1
 			// 
@@ -559,6 +671,7 @@ private: System::Void ThemeCheck() {
 			 this->oleDbConnection1->ConnectionString = connectionString;
 			 oleDbConnection1->Open();
 			 TemaOleDbDataAdapter1->Fill(dataSet1);
+			 ZadachaDbDataAdapter1->Fill(dataSet1);
 			 oleDbConnection1->Close();
 		 }
 			 
@@ -576,18 +689,38 @@ private: System::Void EnterTheme_Click(System::Object^  sender, System::EventArg
 				 this->oleDbConnection1->ConnectionString = connectionString;
 				 oleDbConnection1->Open();
 				 TemaOleDbDataAdapter1->Update(dataSet1);
+				 //ZadachaDbDataAdapter1->Update(dataSet1);
 				 oleDbConnection1->Close();
 				 dataSet1->Clear();	//очистка данных
 				 ThemeCheck(); //начальное чтение из базы
 			 }
 		 }
+
+
 private: System::Void EnterTask_Click(System::Object^  sender, System::EventArgs^  e) {
 			 String^ titleStr = this->Text;
 			 String^ baseName = titleStr->Substring(this->Text->IndexOf(":") + 2);
 
-			 EnterTask^ enterTask = gcnew EnterTask(dataSet1, baseName);
+			/*EnterTask^ enterTask = gcnew EnterTask(dataSet1, baseName);
 			 if(enterTask->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-				 MessageBox::Show("kaka", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
+				 this->oleDbConnection1->ConnectionString = connectionString;
+				 oleDbConnection1->Open();
+				 TemaOleDbDataAdapter1->Update(dataSet1);
+				 ZadachaDbDataAdapter1->Update(dataSet1);
+				 oleDbConnection1->Close();
+				 //dataSet1->Clear();	//очистка данных
+				 ThemeCheck(); //начальное чтение из базы
+			 }*/
+			 EnterTicket^ enterTicket = gcnew EnterTicket(dataSet1, baseName);
+			 if(enterTicket->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
+				 this->oleDbConnection1->ConnectionString = connectionString;
+				 oleDbConnection1->Open();
+				 ZadachaDbDataAdapter1->Update(dataSet1);
+				 oleDbConnection1->Close();
+				 dataSet1->Clear();	//очистка данных
+				 ThemeCheck(); //начальное чтение из базы
 			 }
 		 }
 };
