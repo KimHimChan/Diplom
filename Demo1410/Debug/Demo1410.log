@@ -1,7 +1,7 @@
-﻿Построение начато 21.03.2020 20:38:14.
+﻿Построение начато 22.03.2020 22:58:01.
      1>Проект "C:\TEMP\Diplom\Demo1410\Demo1410\Demo1410.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
-         Создание "Debug\Demo1410.unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\Demo1410.unsuccessfulbuild".
        GenerateTargetFrameworkMonikerAttribute:
        Целевой объект "GenerateTargetFrameworkMonikerAttribute" пропускается, так как все выходные файлы актуальны по отношению к входным.
        ClCompile:
@@ -12,7 +12,8 @@
          Создание кода...
          Для всех выходных данных обновления не требуется.
        CoreResGen:
-         Отсутствуют ресурсы, устаревшие по отношению к файлам своих источников. Пропуск формирования ресурсов.
+         "c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.VisualBasic.dll" /r:"c:\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /compile EnterTicket.resx,Debug\Demo1410.EnterTicket.resources
+         Обрабатывается файл ресурсов "EnterTicket.resx", результирующий объект: "Debug\Demo1410.EnterTicket.resources".
        ResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
@@ -36,4 +37,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:06.85
+Затраченное время: 00:00:07.16

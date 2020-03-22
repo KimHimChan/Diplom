@@ -60,7 +60,7 @@ namespace Demo1410 {
 	private: System::Windows::Forms::ToolStripButton^  toolStripButton2;
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::ComboBox^  comboBox2;
-	private: System::Windows::Forms::RichTextBox^  richTextBox1;
+
 	private: System::Windows::Forms::CheckBox^  checkBox1;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::BindingSource^  bindingSource1;
@@ -101,6 +101,8 @@ namespace Demo1410 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn11;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn12;
 	private: System::Windows::Forms::Label^  label13;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::ComponentModel::IContainer^  components;
 	protected: 
 
@@ -139,7 +141,6 @@ namespace Demo1410 {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->bindingSource1 = (gcnew System::Windows::Forms::BindingSource(this->components));
@@ -180,6 +181,8 @@ namespace Demo1410 {
 			this->dataGridViewTextBoxColumn11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingNavigator1))->BeginInit();
 			this->bindingNavigator1->SuspendLayout();
@@ -188,6 +191,7 @@ namespace Demo1410 {
 			this->toolStrip1->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridViewGr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -195,8 +199,9 @@ namespace Demo1410 {
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(12, 411);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(955, 175);
+			this->dataGridView1->Size = System::Drawing::Size(955, 86);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->Visible = false;
 			// 
 			// bindingNavigator1
 			// 
@@ -329,6 +334,7 @@ namespace Demo1410 {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(51, 20);
 			this->textBox1->TabIndex = 2;
+			this->textBox1->Visible = false;
 			// 
 			// textBox2
 			// 
@@ -336,6 +342,7 @@ namespace Demo1410 {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(42, 20);
 			this->textBox2->TabIndex = 3;
+			this->textBox2->Visible = false;
 			// 
 			// textBox3
 			// 
@@ -343,6 +350,7 @@ namespace Demo1410 {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(42, 20);
 			this->textBox3->TabIndex = 4;
+			this->textBox3->Visible = false;
 			// 
 			// comboBox1
 			// 
@@ -362,49 +370,42 @@ namespace Demo1410 {
 			this->comboBox2->TabIndex = 6;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &EnterTicket::comboBox2_SelectedIndexChanged);
 			// 
-			// richTextBox1
-			// 
-			this->richTextBox1->Location = System::Drawing::Point(13, 592);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(377, 44);
-			this->richTextBox1->TabIndex = 7;
-			this->richTextBox1->Text = L"";
-			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(12, 655);
+			this->checkBox1->Location = System::Drawing::Point(489, 263);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(80, 17);
+			this->checkBox1->Size = System::Drawing::Size(191, 17);
 			this->checkBox1->TabIndex = 8;
-			this->checkBox1->Text = L"checkBox1";
+			this->checkBox1->Text = L"добавить изображение к задаче";
 			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &EnterTicket::checkBox1_CheckedChanged);
 			// 
 			// button1
 			// 
 			this->button1->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->button1->Location = System::Drawing::Point(1164, 576);
+			this->button1->Location = System::Drawing::Point(860, 257);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(104, 23);
 			this->button1->TabIndex = 9;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"Выход";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(427, 616);
+			this->textBox4->Location = System::Drawing::Point(599, 233);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 20);
+			this->textBox4->Size = System::Drawing::Size(199, 20);
 			this->textBox4->TabIndex = 10;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(119, 655);
+			this->label1->Location = System::Drawing::Point(496, 236);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->Size = System::Drawing::Size(97, 13);
 			this->label1->TabIndex = 11;
-			this->label1->Text = L"label1";
+			this->label1->Text = L"Эталонный ответ:";
 			// 
 			// label2
 			// 
@@ -449,6 +450,7 @@ namespace Demo1410 {
 			this->button3->TabIndex = 49;
 			this->button3->Text = L"К задачам >";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &EnterTicket::Size_Update);
 			// 
 			// richTextBox2
 			// 
@@ -720,11 +722,32 @@ namespace Demo1410 {
 			this->label13->TabIndex = 2;
 			this->label13->Text = L"Буквы греческого алфавита:";
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(860, 428);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(104, 23);
+			this->button2->TabIndex = 53;
+			this->button2->Text = L"Открыть файл";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pictureBox1->Location = System::Drawing::Point(489, 294);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(365, 157);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 54;
+			this->pictureBox1->TabStop = false;
+			// 
 			// EnterTicket
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1292, 703);
+			this->ClientSize = System::Drawing::Size(974, 487);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->richTextBox2);
 			this->Controls->Add(this->toolStrip1);
 			this->Controls->Add(this->panel3);
@@ -737,7 +760,6 @@ namespace Demo1410 {
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox3);
@@ -760,6 +782,7 @@ namespace Demo1410 {
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridViewGr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -776,6 +799,10 @@ namespace Demo1410 {
 		int flag; //переход к темам/задачам
 
 private: System::Void EnterTicket_Load(System::Object^  sender, System::EventArgs^  e) {
+			 //первоначальные размеры формы
+			 this->Width = 455;
+			 this->Height = 330;
+
 			 bindingSource1->DataSource = dataSet;
 			 bindingSource1->DataMember = "Tema";
 			 comboBox1->DataSource = bindingSource1;
@@ -790,7 +817,7 @@ private: System::Void EnterTicket_Load(System::Object^  sender, System::EventArg
 			 bindingNavigator1->BindingSource = bindingSource2;
 				 //привязка textBox-ов к столбцам таблицы
 			 textBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
-			 richTextBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
+			 richTextBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
 			 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Sloj")));
 			 textBox3->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Trud")));
 			 textBox4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Type_otvet")));
@@ -801,6 +828,8 @@ private: System::Void EnterTicket_Load(System::Object^  sender, System::EventArg
 			 if (count_rec != 0) {
 				 DataRowView^ row = (DataRowView^) bindingSource1->Current; // текущая строка
 			 }
+
+			 flag = 0; //перешли к темам
 		 }
 private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 bindingSource2->EndEdit(); //выходим из режима редактирования
@@ -860,6 +889,36 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 
 private: System::Void EnterTicket_Shown(System::Object^  sender, System::EventArgs^  e) {
 			 comboBox1->Text = "";
+		 }
+
+private: System::Void Size_Update(System::Object^  sender, System::EventArgs^  e) {
+			 if (flag == 0) {
+				 this->Width = 990;
+				 this->Height = 330;
+				 button3->Text = "< К темам";
+				 flag = 1;
+
+			 }
+			 else {
+				 this->Width = 455;
+				 this->Height = 330;
+				 button3->Text = "К задачам >";
+				 flag = 0;
+			 }
+		 }
+
+		 //поставлена галка для выбора файла
+private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if(checkBox1->Checked == true) {
+				 this->Width = 990;
+				 this->Height = 525;
+				 button1->Location = Point (860, 457);
+			 }
+			 else {
+				 this->Width = 990;
+				 this->Height = 330;
+				 button1->Location = Point (860, 257);
+			 }
 		 }
 };
 }
