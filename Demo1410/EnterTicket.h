@@ -201,7 +201,6 @@ namespace Demo1410 {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(955, 86);
 			this->dataGridView1->TabIndex = 0;
-			this->dataGridView1->Visible = false;
 			// 
 			// bindingNavigator1
 			// 
@@ -232,6 +231,7 @@ namespace Demo1410 {
 			this->bindingNavigatorAddNewItem->RightToLeftAutoMirrorImage = true;
 			this->bindingNavigatorAddNewItem->Size = System::Drawing::Size(23, 22);
 			this->bindingNavigatorAddNewItem->Text = L"Добавить";
+			this->bindingNavigatorAddNewItem->Click += gcnew System::EventHandler(this, &EnterTicket::bindingNavigatorAddNewItem_Click);
 			// 
 			// bindingNavigatorCountItem
 			// 
@@ -243,6 +243,7 @@ namespace Demo1410 {
 			// bindingNavigatorDeleteItem
 			// 
 			this->bindingNavigatorDeleteItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->bindingNavigatorDeleteItem->Enabled = false;
 			this->bindingNavigatorDeleteItem->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"bindingNavigatorDeleteItem.Image")));
 			this->bindingNavigatorDeleteItem->Name = L"bindingNavigatorDeleteItem";
 			this->bindingNavigatorDeleteItem->RightToLeftAutoMirrorImage = true;
@@ -312,20 +313,22 @@ namespace Demo1410 {
 			// toolStripButton1
 			// 
 			this->toolStripButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton1->Enabled = false;
 			this->toolStripButton1->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton1.Image")));
 			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton1->Name = L"toolStripButton1";
 			this->toolStripButton1->Size = System::Drawing::Size(23, 22);
-			this->toolStripButton1->Text = L"toolStripButton1";
+			this->toolStripButton1->Text = L"Редактировать";
 			// 
 			// toolStripButton2
 			// 
 			this->toolStripButton2->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton2->Enabled = false;
 			this->toolStripButton2->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton2.Image")));
 			this->toolStripButton2->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton2->Name = L"toolStripButton2";
 			this->toolStripButton2->Size = System::Drawing::Size(23, 22);
-			this->toolStripButton2->Text = L"toolStripButton2";
+			this->toolStripButton2->Text = L"Подтвердить изменения";
 			this->toolStripButton2->Click += gcnew System::EventHandler(this, &EnterTicket::toolStripButton2_Click);
 			// 
 			// textBox1
@@ -334,7 +337,6 @@ namespace Demo1410 {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(51, 20);
 			this->textBox1->TabIndex = 2;
-			this->textBox1->Visible = false;
 			// 
 			// textBox2
 			// 
@@ -342,7 +344,6 @@ namespace Demo1410 {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(42, 20);
 			this->textBox2->TabIndex = 3;
-			this->textBox2->Visible = false;
 			// 
 			// textBox3
 			// 
@@ -350,7 +351,6 @@ namespace Demo1410 {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(42, 20);
 			this->textBox3->TabIndex = 4;
-			this->textBox3->Visible = false;
 			// 
 			// comboBox1
 			// 
@@ -360,6 +360,7 @@ namespace Demo1410 {
 			this->comboBox1->Size = System::Drawing::Size(378, 21);
 			this->comboBox1->TabIndex = 5;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &EnterTicket::comboBox1_SelectedIndexChanged);
+			this->comboBox1->Click += gcnew System::EventHandler(this, &EnterTicket::comboBox1_Click);
 			// 
 			// comboBox2
 			// 
@@ -390,6 +391,7 @@ namespace Demo1410 {
 			this->button1->TabIndex = 9;
 			this->button1->Text = L"Выход";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &EnterTicket::Insert_Click);
 			// 
 			// textBox4
 			// 
@@ -444,6 +446,7 @@ namespace Demo1410 {
 			// 
 			// button3
 			// 
+			this->button3->Enabled = false;
 			this->button3->Location = System::Drawing::Point(333, 65);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(97, 23);
@@ -745,7 +748,7 @@ namespace Demo1410 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(974, 487);
+			this->ClientSize = System::Drawing::Size(1185, 595);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->richTextBox2);
@@ -805,37 +808,34 @@ private: System::Void EnterTicket_Load(System::Object^  sender, System::EventArg
 
 			 bindingSource1->DataSource = dataSet;
 			 bindingSource1->DataMember = "Tema";
-			 comboBox1->DataSource = bindingSource1;
-			 comboBox1->DisplayMember = "Names";
-
-			 bindingSource2->DataSource = dataSet;
-			 bindingSource2->DataMember = "Zadacha";
-			 bindingNavigator1->BindingSource = bindingSource2;
-
-				 //подключение к источнику данных
+			 
+			 //подключение к источнику данных
 			 dataGridView1->DataSource = bindingSource2; 
-			 bindingNavigator1->BindingSource = bindingSource2;
-				 //привязка textBox-ов к столбцам таблицы
+			 
+			 //привязка textBox-ов к столбцам таблицы
 			 textBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
 			 richTextBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
 			 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Sloj")));
 			 textBox3->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Trud")));
 			 textBox4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Type_otvet")));
-			 label1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Img")));
+			 //label1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Img")));
 
 			 dataGridView1->AllowUserToAddRows = false;
-			 int count_rec = bindingSource1->Count;
+			 int count_rec = bindingSource2->Count;
 			 if (count_rec != 0) {
-				 DataRowView^ row = (DataRowView^) bindingSource1->Current; // текущая строка
+				 DataRowView^ row = (DataRowView^) bindingSource2->Current; // текущая строка
 			 }
 
 			 flag = 0; //перешли к темам
 		 }
-private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 bindingSource2->EndEdit(); //выходим из режима редактирования
-			 dataGridView1->Focus(); //фокус передан таблице
-		 }
+
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 //пока не выбрана тема сложность/трудоемкость отсутствует
+			 bindingSource2->DataSource = dataSet;
+			 bindingSource2->DataMember = "Zadacha";
+
+			 bindingNavigator1->BindingSource = bindingSource2;
+
 			 name = comboBox1->Text;
 			 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
 			 OleDbConnection^ conn = gcnew OleDbConnection(connectionString);
@@ -876,7 +876,15 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 			 bindingSource2->Filter = "ID_tema = '" + textBox1->Text + "'";
 		 }
 
+private: System::Void comboBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 //данные подгружаются только когда выбрана тема
+			 comboBox1->DataSource = bindingSource1;
+			 comboBox1->DisplayMember = "Names";
+		 }
+
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if(comboBox2->Items->Count > 0) button3->Enabled = true;
+
 			 String^ sl = comboBox2->Text->Substring(0, comboBox2->Text->IndexOf(","));	//сложность
 			 String^ tr = comboBox2->Text->Substring(comboBox2->Text->IndexOf(",") + 1);	//трудоемкость
 
@@ -919,6 +927,38 @@ private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::
 				 this->Height = 330;
 				 button1->Location = Point (860, 257);
 			 }
+		 }
+
+
+
+		 //кнопка добавить на навигаторе
+private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 bindingNavigatorAddNewItem->Enabled = false; //кнопка Добавить не доступна
+			 toolStripButton1->Enabled = false; //кнопка Редактировать не доступна
+			 bindingNavigatorDeleteItem->Enabled = true; //кнопка Удалить доступна
+			 toolStripButton2->Enabled = true; //кнопка СохранитьИзменения доступна
+
+			 //выделить весь текст в большом текстовом поле
+			 richTextBox2->Enabled = true; //в поле можно записывать
+			 richTextBox2->SelectionStart = 0;
+			 richTextBox2->SelectionLength = richTextBox2->Text->Length;
+			 richTextBox2->Focus();
+		 }
+
+		 //кнопка подтвердить на навигаторе
+private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 bindingNavigatorAddNewItem->Enabled = true; //кнопка Добавить доступна
+			 toolStripButton1->Enabled = false; //кнопка Редактировать не доступна
+			 bindingNavigatorDeleteItem->Enabled = true; //кнопка Удалить доступна
+			 toolStripButton2->Enabled = false; //кнопка СохранитьИзменения не доступна
+
+			 bindingSource2->EndEdit(); //выходим из режима редактирования
+			 dataGridView1->Focus(); 
+		 }
+
+		 //кнопка выход
+private: System::Void Insert_Click(System::Object^  sender, System::EventArgs^  e) {
+			 //
 		 }
 };
 }

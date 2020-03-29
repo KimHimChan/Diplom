@@ -1264,6 +1264,7 @@ private: System::Void toolStripButton9_Click(System::Object^  sender, System::Ev
 			 bindingSource2->EndEdit(); //выходим из режима редактирования
 			 ElemFormEnabledFalse(); //оба списка не доступны
 			 richTextBox1->Focus();
+
 			 //DataTable^ tOb1 = dataSet->Tables["Zadacha"];
 			 //DataRow^ row_tOb1 = tOb1->Rows->Add(); // Добавляем строку в таблицу из dataSet
 		 }

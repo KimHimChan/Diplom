@@ -45,6 +45,9 @@
     <ClCompile Include="EnterTicket.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Primer.cpp">
+      <Filter>Заголовочные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
@@ -71,6 +74,9 @@
     <ClInclude Include="EnterTicket.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Primer.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -91,6 +97,9 @@
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterTask.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterTicket.resx">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
   </ItemGroup>

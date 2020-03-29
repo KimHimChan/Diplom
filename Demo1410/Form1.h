@@ -6,6 +6,7 @@
 #include "EnterTheme.h"
 #include "EnterTask.h"
 #include "EnterTicket.h"
+#include "Primer.h"
 
 namespace Demo1410 {
 
@@ -701,6 +702,8 @@ private: System::Void EnterTask_Click(System::Object^  sender, System::EventArgs
 			 String^ titleStr = this->Text;
 			 String^ baseName = titleStr->Substring(this->Text->IndexOf(":") + 2);
 
+			 //1-я "сломанная форма"
+
 			/*EnterTask^ enterTask = gcnew EnterTask(dataSet1, baseName);
 			 if(enterTask->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
@@ -712,8 +715,24 @@ private: System::Void EnterTask_Click(System::Object^  sender, System::EventArgs
 				 //dataSet1->Clear();	//очистка данных
 				 ThemeCheck(); //начальное чтение из базы
 			 }*/
-			 EnterTicket^ enterTicket = gcnew EnterTicket(dataSet1, baseName);
+
+
+			 //2-я "почти работающая форма"
+
+			 /*EnterTicket^ enterTicket = gcnew EnterTicket(dataSet1, baseName);
 			 if(enterTicket->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
+				 this->oleDbConnection1->ConnectionString = connectionString;
+				 oleDbConnection1->Open();
+				 ZadachaDbDataAdapter1->Update(dataSet1);
+				 oleDbConnection1->Close();
+				 dataSet1->Clear();	//очистка данных
+				 ThemeCheck(); //начальное чтение из базы
+			 }*/
+
+			 //"полу работающий вариант
+			 Primer^ primer = gcnew Primer(dataSet1, baseName);
+			 if(primer->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
 				 this->oleDbConnection1->ConnectionString = connectionString;
 				 oleDbConnection1->Open();
