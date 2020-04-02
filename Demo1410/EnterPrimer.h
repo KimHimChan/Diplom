@@ -80,6 +80,8 @@ namespace Demo1410 {
 	private: System::Windows::Forms::CheckBox^  checkBox1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::Button^  button3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -136,6 +138,8 @@ namespace Demo1410 {
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource2))->BeginInit();
@@ -484,12 +488,22 @@ namespace Demo1410 {
 			this->button3->TabIndex = 56;
 			this->button3->Text = L"Открыть файл";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &EnterPrimer::open_File);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(514, 520);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(0, 13);
+			this->label4->TabIndex = 57;
 			// 
 			// EnterPrimer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1024, 562);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->checkBox1);
@@ -533,9 +547,10 @@ namespace Demo1410 {
 		String^ id; //номер темы
 		String^ sl;
 		String^ tr; 
-		int sloj, trud; //сложностьб трудоемкость
+		String^ img; //путь к картинке
 		int flag; //переход к темам/задачам
 
+		//загрузка формы
 private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArgs^  e) {
 			 //первоначальные размеры формы
 			 this->Width = 475;
@@ -553,6 +568,7 @@ private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArg
 			 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
 			 textBox3->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Sloj")));
 			 textBox4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Trud")));
+			 label4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Img")));
 			 richTextBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
 
 			 dataGridView1->RowHeadersVisible = false;
@@ -566,7 +582,7 @@ private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArg
 			 flag = 0; //перешли к темам
 		 }
 
-
+		 //выбор темы
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 			 bindingSource2->DataSource = dataSet;
 			 bindingSource2->DataMember = "Zadacha";
@@ -611,6 +627,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 			 bindingSource2->Filter = "ID_tema = '" + id + "'";
 		 }
 
+		 //выбор сложности и трудоемкости
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 			 sl = comboBox2->Text->Substring(0, comboBox2->Text->IndexOf(","));	//сложность
 			 tr = comboBox2->Text->Substring(comboBox2->Text->IndexOf(",") + 1);	//трудоемкость
@@ -619,6 +636,7 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 			 button2->Enabled = true;
 		 }
 
+		 //кнопка добавить на навигаторе
 private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 textBox2->Text = id;
 			 textBox3->Text = sl;
@@ -626,13 +644,14 @@ private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, 
 			 richTextBox1->Focus(); //фокус передан полю ввода
 		 }
 
+		 //кнопка Подтвердить изменения
 private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 bindingSource2->EndEdit(); //выходим из режима редактирования
 			 dataGridView1->Focus(); //фокус передан таблице
 			 dataGridView1->Refresh(); //обновить таблицу
-
 		 }
-
+		 
+		 //кнопка записать в базу
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 this->Validate(); //проверяет значение элемента управления, потерявшего фокус
 			 this->bindingSource2->EndEdit();
@@ -655,16 +674,51 @@ private: System::Void Size_Update(System::Object^  sender, System::EventArgs^  e
 			 }
 		 }
 
+		 //поставлена/не поставлена галка для выбора файла
 private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			 if(checkBox1->Checked == true) {
 				 this->Width = 1040;
 				 this->Height = 600;
 				 button1->Location = Point (910, 515);
+				 label4->Text = "";
 			 }
 			 else {
 				 this->Width = 1040;
 				 this->Height = 380;
 				 button1->Location = Point (910, 305);
+			 }
+		 }
+
+		 //выбор картинки
+private: System::Void open_File(System::Object^  sender, System::EventArgs^  e) {
+			 openFileDialog1->Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+			 if(openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				 String^ file_path = openFileDialog1->FileName; //путь до выбранного файлы
+				 int index = file_path->LastIndexOf('\\');
+				 String^ fileName = file_path->Substring(index + 1); //имя файла файла без пути 
+				 try {
+					 IO::File::Copy(file_path, Application::StartupPath + L"\\img\\" + fileName, false);
+					 MessageBox::Show("Файл успешно добавлен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					 img = Application::StartupPath + L"\\img\\" + fileName;
+					 pictureBox1->Image=Image::FromFile(img); //добавление картинки в pictureBox
+					 label4->Text = img;
+				 }
+				 catch(...) {
+					 if(IO::File::Exists(Application::StartupPath + L"\\img\\" + fileName) == true) { //Файл в указанной папке уже есть
+						 if (MessageBox::Show("Файл с таким именем в папке уже существует. Перезаписать?", "Ошибка", 
+							 MessageBoxButtons::OKCancel, MessageBoxIcon::Error) == System::Windows::Forms::DialogResult::OK) {
+								 IO::File::Delete(Application::StartupPath + L"\\img\\" + fileName); //Удалить существующий файл
+								 //Снова скопировать файл
+								 IO::File::Copy(file_path, Application::StartupPath + L"\\img\\" + fileName, false);
+								 MessageBox::Show("Файл успешно добавлен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+								 img = Application::StartupPath + L"\\img\\" + fileName;
+								 pictureBox1->Image=Image::FromFile(img); //добавление картинки в pictureBox
+								 label4->Text = img;
+						 }
+					 }
+					 else //Другая ошибка
+						 MessageBox::Show("Не удалось записать файл", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				 }
 			 }
 		 }
 };

@@ -1,7 +1,7 @@
-﻿Построение начато 02.04.2020 17:20:59.
+﻿Построение начато 02.04.2020 17:52:13.
      1>Проект "C:\TEMP\Diplom\Demo1410\Demo1410\Demo1410.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
-         Создание "Debug\Demo1410.unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\Demo1410.unsuccessfulbuild".
        GenerateTargetFrameworkMonikerAttribute:
        Целевой объект "GenerateTargetFrameworkMonikerAttribute" пропускается, так как все выходные файлы актуальны по отношению к входным.
        ClCompile:
@@ -38,4 +38,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:04.39
+Затраченное время: 00:00:04.36
