@@ -19,6 +19,9 @@
     <None Include="app.ico">
       <Filter>Файлы ресурсов</Filter>
     </None>
+    <None Include="..\..\..\..\Users\Public\Desktop\Git Bash.lnk">
+      <Filter>Заголовочные файлы</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo1410.cpp">
@@ -109,6 +112,9 @@
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Primer.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterPrimer.resx">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -65,6 +65,9 @@ namespace Demo1410 {
 	private: System::Windows::Forms::TextBox^  textBox4;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::ToolStripButton^  toolStripButton1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Button^  button2;
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -106,6 +109,9 @@ namespace Demo1410 {
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource2))->BeginInit();
@@ -116,7 +122,7 @@ namespace Demo1410 {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(12, 28);
+			this->dataGridView1->Location = System::Drawing::Point(5, 471);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(811, 186);
 			this->dataGridView1->TabIndex = 0;
@@ -126,18 +132,19 @@ namespace Demo1410 {
 			this->bindingNavigator1->AddNewItem = this->bindingNavigatorAddNewItem;
 			this->bindingNavigator1->CountItem = this->bindingNavigatorCountItem;
 			this->bindingNavigator1->DeleteItem = this->bindingNavigatorDeleteItem;
+			this->bindingNavigator1->Dock = System::Windows::Forms::DockStyle::None;
 			this->bindingNavigator1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(12) {this->bindingNavigatorMoveFirstItem, 
 				this->bindingNavigatorMovePreviousItem, this->bindingNavigatorSeparator, this->bindingNavigatorPositionItem, this->bindingNavigatorCountItem, 
 				this->bindingNavigatorSeparator1, this->bindingNavigatorMoveNextItem, this->bindingNavigatorMoveLastItem, this->bindingNavigatorSeparator2, 
 				this->bindingNavigatorAddNewItem, this->bindingNavigatorDeleteItem, this->toolStripButton1});
-			this->bindingNavigator1->Location = System::Drawing::Point(0, 0);
+			this->bindingNavigator1->Location = System::Drawing::Point(-7, 443);
 			this->bindingNavigator1->MoveFirstItem = this->bindingNavigatorMoveFirstItem;
 			this->bindingNavigator1->MoveLastItem = this->bindingNavigatorMoveLastItem;
 			this->bindingNavigator1->MoveNextItem = this->bindingNavigatorMoveNextItem;
 			this->bindingNavigator1->MovePreviousItem = this->bindingNavigatorMovePreviousItem;
 			this->bindingNavigator1->Name = L"bindingNavigator1";
 			this->bindingNavigator1->PositionItem = this->bindingNavigatorPositionItem;
-			this->bindingNavigator1->Size = System::Drawing::Size(835, 25);
+			this->bindingNavigator1->Size = System::Drawing::Size(286, 25);
 			this->bindingNavigator1->TabIndex = 1;
 			this->bindingNavigator1->Text = L"bindingNavigator1";
 			// 
@@ -240,16 +247,16 @@ namespace Demo1410 {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(13, 221);
+			this->comboBox1->Location = System::Drawing::Point(55, 19);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(224, 21);
+			this->comboBox1->Size = System::Drawing::Size(380, 21);
 			this->comboBox1->TabIndex = 2;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &EnterPrimer::comboBox1_SelectedIndexChanged);
 			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(116, 248);
+			this->comboBox2->Location = System::Drawing::Point(163, 53);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(121, 21);
 			this->comboBox2->TabIndex = 3;
@@ -257,28 +264,28 @@ namespace Demo1410 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(137, 377);
+			this->textBox1->Location = System::Drawing::Point(130, 831);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 4;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(305, 222);
+			this->textBox2->Location = System::Drawing::Point(298, 665);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 5;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(411, 221);
+			this->textBox3->Location = System::Drawing::Point(404, 664);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 6;
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(13, 275);
+			this->richTextBox1->Location = System::Drawing::Point(6, 718);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->Size = System::Drawing::Size(224, 96);
 			this->richTextBox1->TabIndex = 7;
@@ -286,7 +293,7 @@ namespace Demo1410 {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(518, 222);
+			this->textBox4->Location = System::Drawing::Point(511, 665);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 20);
 			this->textBox4->TabIndex = 8;
@@ -294,7 +301,7 @@ namespace Demo1410 {
 			// button1
 			// 
 			this->button1->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->button1->Location = System::Drawing::Point(748, 400);
+			this->button1->Location = System::Drawing::Point(742, 672);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 9;
@@ -302,11 +309,42 @@ namespace Demo1410 {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &EnterPrimer::button1_Click);
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(12, 22);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(37, 13);
+			this->label2->TabIndex = 13;
+			this->label2->Text = L"Тема:";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(12, 56);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(145, 13);
+			this->label3->TabIndex = 14;
+			this->label3->Text = L"Сложность, Трудоемкость:";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(343, 51);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(92, 23);
+			this->button2->TabIndex = 15;
+			this->button2->Text = L"К задачам >";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &EnterPrimer::Size_Update);
+			// 
 			// EnterPrimer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(835, 435);
+			this->ClientSize = System::Drawing::Size(1137, 909);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->richTextBox1);
@@ -337,37 +375,41 @@ namespace Demo1410 {
 		String^ name; //наименование темы
 		int min_sloj, max_sloj, min_trud, max_trud; //мин и макс сложность и трудоескость
 		int sloj, trud; //сложностьб трудоемкость
+		int flag; //переход к темам/задачам
 
-	private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArgs^  e) {
-				 bindingSource1->DataSource = dataSet;
-				 bindingSource1->DataMember = "Tema";
-				 comboBox1->DataSource = bindingSource1;
-				 comboBox1->DisplayMember = "Names";
+private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArgs^  e) {
+			 //первоначальные размеры формы
+			 this->Width = 455;
+			 this->Height = 330;
 
-				 bindingSource2->DataSource = dataSet;
-				 bindingSource2->DataMember = "Zadacha";
+			 bindingSource1->DataSource = dataSet;
+			 bindingSource1->DataMember = "Tema";
+			 comboBox1->DataSource = bindingSource1;
+			 comboBox1->DisplayMember = "Names";
 
-				 //подключение к источнику данных
-				 dataGridView1->DataSource = bindingSource2; 
-				 bindingNavigator1->BindingSource = bindingSource2;
-				 //привязка textBox-ов к столбцам таблицы
-				 textBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Type_otvet")));
-				 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
-				 textBox3->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Sloj")));
-				 textBox4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Trud")));
-				 richTextBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
-				 
-				 
-				 
-				 dataGridView1->RowHeadersVisible = false;
-				 dataGridView1->AllowUserToAddRows = false;
-				 
+			 bindingSource2->DataSource = dataSet;
+			 bindingSource2->DataMember = "Zadacha";
 
-				 int count_rec = bindingSource2->Count;
-				 if (count_rec != 0) {
-					 DataRowView^ row = (DataRowView^) bindingSource2->Current; // текущая строка
-				 }
+			 //подключение к источнику данных
+			 dataGridView1->DataSource = bindingSource2; 
+			 bindingNavigator1->BindingSource = bindingSource2;
+			 //привязка textBox-ов к столбцам таблицы
+			 textBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Type_otvet")));
+			 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
+			 textBox3->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Sloj")));
+			 textBox4->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Trud")));
+			 richTextBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Text")));
+
+			 dataGridView1->RowHeadersVisible = false;
+			 dataGridView1->AllowUserToAddRows = false;
+
+			 int count_rec = bindingSource2->Count;
+			 if (count_rec != 0) {
+				 DataRowView^ row = (DataRowView^) bindingSource2->Current; // текущая строка
 			 }
+			 
+			 flag = 0; //перешли к темам
+		 }
 
 
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -420,10 +462,29 @@ private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, 
 private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 bindingSource2->EndEdit(); //выходим из режима редактирования
 			 dataGridView1->Focus(); //фокус передан таблице
+			 dataGridView1->Refresh(); //обновить таблицу
+
 		 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 this->Validate(); //проверяет значение элемента управления, потерявшего фокус
 			 this->bindingSource2->EndEdit();
+		 }
+
+		 //изменение размеров окна
+private: System::Void Size_Update(System::Object^  sender, System::EventArgs^  e) {
+			 if (flag == 0) {
+				 this->Width = 990;
+				 this->Height = 330;
+				 button2->Text = "< К темам";
+				 flag = 1;
+
+			 }
+			 else {
+				 this->Width = 455;
+				 this->Height = 330;
+				 button2->Text = "К задачам >";
+				 flag = 0;
+			 }
 		 }
 };
 }
