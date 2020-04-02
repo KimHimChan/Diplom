@@ -68,6 +68,18 @@ namespace Demo1410 {
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::ToolStrip^  toolStrip1;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton3;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton4;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton5;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton6;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton7;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton8;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton9;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::CheckBox^  checkBox1;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Button^  button3;
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -112,17 +124,31 @@ namespace Demo1410 {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
+			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton5 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton6 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton7 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton8 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripButton9 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingNavigator1))->BeginInit();
 			this->bindingNavigator1->SuspendLayout();
+			this->toolStrip1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(5, 471);
+			this->dataGridView1->Location = System::Drawing::Point(153, 673);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(811, 186);
 			this->dataGridView1->TabIndex = 0;
@@ -137,7 +163,7 @@ namespace Demo1410 {
 				this->bindingNavigatorMovePreviousItem, this->bindingNavigatorSeparator, this->bindingNavigatorPositionItem, this->bindingNavigatorCountItem, 
 				this->bindingNavigatorSeparator1, this->bindingNavigatorMoveNextItem, this->bindingNavigatorMoveLastItem, this->bindingNavigatorSeparator2, 
 				this->bindingNavigatorAddNewItem, this->bindingNavigatorDeleteItem, this->toolStripButton1});
-			this->bindingNavigator1->Location = System::Drawing::Point(-7, 443);
+			this->bindingNavigator1->Location = System::Drawing::Point(511, 9);
 			this->bindingNavigator1->MoveFirstItem = this->bindingNavigatorMoveFirstItem;
 			this->bindingNavigator1->MoveLastItem = this->bindingNavigatorMoveLastItem;
 			this->bindingNavigator1->MoveNextItem = this->bindingNavigatorMoveNextItem;
@@ -264,36 +290,38 @@ namespace Demo1410 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(130, 831);
+			this->textBox1->Location = System::Drawing::Point(629, 281);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->Size = System::Drawing::Size(200, 20);
 			this->textBox1->TabIndex = 4;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(298, 665);
+			this->textBox2->Location = System::Drawing::Point(446, 867);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 5;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(404, 664);
+			this->textBox3->Location = System::Drawing::Point(552, 866);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 6;
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(6, 718);
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->richTextBox1->Location = System::Drawing::Point(511, 72);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(224, 96);
+			this->richTextBox1->Size = System::Drawing::Size(475, 197);
 			this->richTextBox1->TabIndex = 7;
-			this->richTextBox1->Text = L"";
+			this->richTextBox1->Text = L"(Здесь определяется шаблон задачи)";
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(511, 665);
+			this->textBox4->Location = System::Drawing::Point(659, 867);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 20);
 			this->textBox4->TabIndex = 8;
@@ -301,11 +329,11 @@ namespace Demo1410 {
 			// button1
 			// 
 			this->button1->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->button1->Location = System::Drawing::Point(742, 672);
+			this->button1->Location = System::Drawing::Point(910, 305);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 9;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"Записать";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &EnterPrimer::button1_Click);
 			// 
@@ -329,6 +357,7 @@ namespace Demo1410 {
 			// 
 			// button2
 			// 
+			this->button2->Enabled = false;
 			this->button2->Location = System::Drawing::Point(343, 51);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(92, 23);
@@ -337,11 +366,135 @@ namespace Demo1410 {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &EnterPrimer::Size_Update);
 			// 
+			// toolStrip1
+			// 
+			this->toolStrip1->AutoSize = false;
+			this->toolStrip1->Dock = System::Windows::Forms::DockStyle::None;
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(7) {this->toolStripButton3, 
+				this->toolStripButton4, this->toolStripButton5, this->toolStripButton6, this->toolStripButton7, this->toolStripButton8, this->toolStripButton9});
+			this->toolStrip1->Location = System::Drawing::Point(511, 44);
+			this->toolStrip1->Name = L"toolStrip1";
+			this->toolStrip1->Size = System::Drawing::Size(475, 25);
+			this->toolStrip1->TabIndex = 52;
+			this->toolStrip1->Text = L"toolStrip1";
+			// 
+			// toolStripButton3
+			// 
+			this->toolStripButton3->CheckOnClick = true;
+			this->toolStripButton3->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton3->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton3.Image")));
+			this->toolStripButton3->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton3->Name = L"toolStripButton3";
+			this->toolStripButton3->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton3->Text = L"Полужирый";
+			// 
+			// toolStripButton4
+			// 
+			this->toolStripButton4->CheckOnClick = true;
+			this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton4->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton4.Image")));
+			this->toolStripButton4->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton4->Name = L"toolStripButton4";
+			this->toolStripButton4->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton4->Text = L"Курсив";
+			// 
+			// toolStripButton5
+			// 
+			this->toolStripButton5->CheckOnClick = true;
+			this->toolStripButton5->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton5->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton5.Image")));
+			this->toolStripButton5->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton5->Name = L"toolStripButton5";
+			this->toolStripButton5->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton5->Text = L"Подчеркивание";
+			// 
+			// toolStripButton6
+			// 
+			this->toolStripButton6->CheckOnClick = true;
+			this->toolStripButton6->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton6->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton6.Image")));
+			this->toolStripButton6->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton6->Name = L"toolStripButton6";
+			this->toolStripButton6->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton6->Text = L"Индекс";
+			// 
+			// toolStripButton7
+			// 
+			this->toolStripButton7->CheckOnClick = true;
+			this->toolStripButton7->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton7->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton7.Image")));
+			this->toolStripButton7->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton7->Name = L"toolStripButton7";
+			this->toolStripButton7->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton7->Text = L"Степень";
+			// 
+			// toolStripButton8
+			// 
+			this->toolStripButton8->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton8->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton8.Image")));
+			this->toolStripButton8->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton8->Name = L"toolStripButton8";
+			this->toolStripButton8->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton8->Text = L"Бесконечность";
+			// 
+			// toolStripButton9
+			// 
+			this->toolStripButton9->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton9->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"toolStripButton9.Image")));
+			this->toolStripButton9->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton9->Name = L"toolStripButton9";
+			this->toolStripButton9->Size = System::Drawing::Size(23, 22);
+			this->toolStripButton9->Text = L"Буквы греческого алфавита";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(514, 284);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(97, 13);
+			this->label1->TabIndex = 53;
+			this->label1->Text = L"Эталонный ответ:";
+			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->Location = System::Drawing::Point(517, 311);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(191, 17);
+			this->checkBox1->TabIndex = 54;
+			this->checkBox1->Text = L"добавить изображение к задаче";
+			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &EnterPrimer::checkBox1_CheckedChanged);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pictureBox1->Location = System::Drawing::Point(511, 343);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(365, 157);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 55;
+			this->pictureBox1->TabStop = false;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(889, 477);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(97, 23);
+			this->button3->TabIndex = 56;
+			this->button3->Text = L"Открыть файл";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
 			// EnterPrimer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1137, 909);
+			this->ClientSize = System::Drawing::Size(1024, 562);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->checkBox1);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->toolStrip1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -364,6 +517,9 @@ namespace Demo1410 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingNavigator1))->EndInit();
 			this->bindingNavigator1->ResumeLayout(false);
 			this->bindingNavigator1->PerformLayout();
+			this->toolStrip1->ResumeLayout(false);
+			this->toolStrip1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -374,25 +530,24 @@ namespace Demo1410 {
 		String^ baseName; //путь до базы
 		String^ name; //наименование темы
 		int min_sloj, max_sloj, min_trud, max_trud; //мин и макс сложность и трудоескость
+		String^ id; //номер темы
+		String^ sl;
+		String^ tr; 
 		int sloj, trud; //сложностьб трудоемкость
 		int flag; //переход к темам/задачам
 
 private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArgs^  e) {
 			 //первоначальные размеры формы
-			 this->Width = 455;
-			 this->Height = 330;
+			 this->Width = 475;
+			 this->Height = 380;
 
 			 bindingSource1->DataSource = dataSet;
 			 bindingSource1->DataMember = "Tema";
 			 comboBox1->DataSource = bindingSource1;
 			 comboBox1->DisplayMember = "Names";
-
-			 bindingSource2->DataSource = dataSet;
-			 bindingSource2->DataMember = "Zadacha";
-
 			 //подключение к источнику данных
 			 dataGridView1->DataSource = bindingSource2; 
-			 bindingNavigator1->BindingSource = bindingSource2;
+			 
 			 //привязка textBox-ов к столбцам таблицы
 			 textBox1->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"Type_otvet")));
 			 textBox2->DataBindings->Add((gcnew Binding(L"Text", bindingSource2, L"ID_tema")));
@@ -413,13 +568,18 @@ private: System::Void EnterPrimer_Load(System::Object^  sender, System::EventArg
 
 
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 bindingSource2->DataSource = dataSet;
+			 bindingSource2->DataMember = "Zadacha";
+
+			 bindingNavigator1->BindingSource = bindingSource2;
+
 			 name = comboBox1->Text;
 			 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
 			 OleDbConnection^ conn = gcnew OleDbConnection(connectionString);
 			 conn->Open();
 			 //id темы
 			 OleDbCommand^ cmd_id = gcnew OleDbCommand("SELECT ID FROM Tema WHERE [Names] = '" + name + "'", conn);
-			 String^ id_str = cmd_id->ExecuteScalar()->ToString();
+			 id = cmd_id->ExecuteScalar()->ToString();
 			 //выбор мин сложности
 			 OleDbCommand^ cmd_min_sloj = gcnew OleDbCommand("SELECT Sloj_min FROM Tema WHERE [Names] = '" + name + "'", conn);
 			 String^ min_sloj_str = cmd_min_sloj->ExecuteScalar()->ToString();
@@ -448,23 +608,31 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 				 }
 			 }
 
-			 textBox2->Text = id_str;
+			 bindingSource2->Filter = "ID_tema = '" + id + "'";
 		 }
+
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 String^ sl = comboBox2->Text->Substring(0, comboBox2->Text->IndexOf(","));	//сложность
-			 String^ tr = comboBox2->Text->Substring(comboBox2->Text->IndexOf(",") + 1);	//трудоемкость
+			 sl = comboBox2->Text->Substring(0, comboBox2->Text->IndexOf(","));	//сложность
+			 tr = comboBox2->Text->Substring(comboBox2->Text->IndexOf(",") + 1);	//трудоемкость
+
+			 bindingSource2->Filter = "[ID_tema] = '" + id + "' AND [Sloj] = '" + sl + "' AND [Trud] = '" + tr + "'";
+			 button2->Enabled = true;
+		 }
+
+private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 textBox2->Text = id;
 			 textBox3->Text = sl;
 			 textBox4->Text = tr;
-		 }
-private: System::Void bindingNavigatorAddNewItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 richTextBox1->Focus(); //фокус передан полю ввода
 		 }
+
 private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 bindingSource2->EndEdit(); //выходим из режима редактирования
 			 dataGridView1->Focus(); //фокус передан таблице
 			 dataGridView1->Refresh(); //обновить таблицу
 
 		 }
+
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 this->Validate(); //проверяет значение элемента управления, потерявшего фокус
 			 this->bindingSource2->EndEdit();
@@ -473,17 +641,30 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		 //изменение размеров окна
 private: System::Void Size_Update(System::Object^  sender, System::EventArgs^  e) {
 			 if (flag == 0) {
-				 this->Width = 990;
-				 this->Height = 330;
+				 this->Width = 1040;
+				 this->Height = 380;
 				 button2->Text = "< К темам";
 				 flag = 1;
 
 			 }
 			 else {
-				 this->Width = 455;
-				 this->Height = 330;
+				 this->Width = 475;
+				 this->Height = 380;
 				 button2->Text = "К задачам >";
 				 flag = 0;
+			 }
+		 }
+
+private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if(checkBox1->Checked == true) {
+				 this->Width = 1040;
+				 this->Height = 600;
+				 button1->Location = Point (910, 515);
+			 }
+			 else {
+				 this->Width = 1040;
+				 this->Height = 380;
+				 button1->Location = Point (910, 305);
 			 }
 		 }
 };
