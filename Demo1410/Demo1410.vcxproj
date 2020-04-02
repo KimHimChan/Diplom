@@ -96,6 +96,7 @@
     <ClCompile Include="ConnectionDB.cpp" />
     <ClCompile Include="CreateDB.cpp" />
     <ClCompile Include="Demo1410.cpp" />
+    <ClCompile Include="EnterPrimer.cpp" />
     <ClCompile Include="EnterTask.cpp" />
     <ClCompile Include="EnterTheme.cpp" />
     <ClCompile Include="EnterTicket.cpp" />
@@ -110,6 +111,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CreateDB.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EnterPrimer.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EnterTask.h">
@@ -139,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateDB.resx">
       <DependentUpon>CreateDB.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterPrimer.resx">
+      <DependentUpon>EnterPrimer.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterTask.resx">
       <DependentUpon>EnterTask.h</DependentUpon>

@@ -7,6 +7,7 @@
 #include "EnterTask.h"
 #include "EnterTicket.h"
 #include "Primer.h"
+#include "EnterPrimer.h"
 
 namespace Demo1410 {
 
@@ -456,11 +457,11 @@ namespace Demo1410 {
 			this->dataTable2->Columns->AddRange(gcnew cli::array< System::Data::DataColumn^  >(7) {this->dataColumn7, this->dataColumn8, 
 				this->dataColumn9, this->dataColumn10, this->dataColumn11, this->dataColumn12, this->dataColumn13});
 			cli::array< System::String^ >^ __mcTemp__3 = gcnew cli::array< System::String^  >(1) {L"ID"};
-			cli::array< System::String^ >^ __mcTemp__4 = gcnew cli::array< System::String^  >(1) {L"ID_tema"};
-			cli::array< System::String^ >^ __mcTemp__5 = gcnew cli::array< System::String^  >(1) {L"ID"};
-			this->dataTable2->Constraints->AddRange(gcnew cli::array< System::Data::Constraint^  >(2) {(gcnew System::Data::ForeignKeyConstraint(L"Tema_Zadacha", 
-				L"Tema", __mcTemp__3, __mcTemp__4, System::Data::AcceptRejectRule::None, System::Data::Rule::Cascade, System::Data::Rule::Cascade)), 
-				(gcnew System::Data::UniqueConstraint(L"Constraint1", __mcTemp__5, true))});
+			cli::array< System::String^ >^ __mcTemp__4 = gcnew cli::array< System::String^  >(1) {L"ID"};
+			cli::array< System::String^ >^ __mcTemp__5 = gcnew cli::array< System::String^  >(1) {L"ID_tema"};
+			this->dataTable2->Constraints->AddRange(gcnew cli::array< System::Data::Constraint^  >(2) {(gcnew System::Data::UniqueConstraint(L"Constraint1", 
+				__mcTemp__3, true)), (gcnew System::Data::ForeignKeyConstraint(L"Tema_Zadacha", L"Tema", __mcTemp__4, __mcTemp__5, System::Data::AcceptRejectRule::None, 
+				System::Data::Rule::Cascade, System::Data::Rule::Cascade))});
 			this->dataTable2->PrimaryKey = gcnew cli::array< System::Data::DataColumn^  >(1) {this->dataColumn7};
 			this->dataTable2->TableName = L"Zadacha";
 			// 
@@ -690,7 +691,7 @@ private: System::Void EnterTheme_Click(System::Object^  sender, System::EventArg
 				 this->oleDbConnection1->ConnectionString = connectionString;
 				 oleDbConnection1->Open();
 				 TemaOleDbDataAdapter1->Update(dataSet1);
-				 //ZadachaDbDataAdapter1->Update(dataSet1);
+				 ZadachaDbDataAdapter1->Update(dataSet1);
 				 oleDbConnection1->Close();
 				 dataSet1->Clear();	//очистка данных
 				 ThemeCheck(); //начальное чтение из базы
@@ -731,8 +732,20 @@ private: System::Void EnterTask_Click(System::Object^  sender, System::EventArgs
 			 }*/
 
 			 //"полу работающий вариант
-			 Primer^ primer = gcnew Primer(dataSet1, baseName);
+			 /*Primer^ primer = gcnew Primer(dataSet1, baseName);
 			 if(primer->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
+				 this->oleDbConnection1->ConnectionString = connectionString;
+				 oleDbConnection1->Open();
+				 ZadachaDbDataAdapter1->Update(dataSet1);
+				 oleDbConnection1->Close();
+				 dataSet1->Clear();	//очистка данных
+				 ThemeCheck(); //начальное чтение из базы
+			 }*/
+
+
+			 EnterPrimer^ enterPrimer = gcnew EnterPrimer(dataSet1, baseName);
+			 if(enterPrimer->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				 String^ connectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + baseName;
 				 this->oleDbConnection1->ConnectionString = connectionString;
 				 oleDbConnection1->Open();

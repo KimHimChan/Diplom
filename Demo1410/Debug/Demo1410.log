@@ -1,4 +1,4 @@
-﻿Построение начато 29.03.2020 20:33:43.
+﻿Построение начато 02.04.2020 15:07:20.
      1>Проект "C:\TEMP\Diplom\Demo1410\Demo1410\Demo1410.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\Demo1410.unsuccessfulbuild", так как было задано "AlwaysCreate".
@@ -6,9 +6,9 @@
        Целевой объект "GenerateTargetFrameworkMonikerAttribute" пропускается, так как все выходные файлы актуальны по отношению к входным.
        ClCompile:
          Для всех выходных данных обновления не требуется.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr:pure /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Demo1410.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.VisualBasic.dll" /FU"c:\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Demo1410.cpp Primer.cpp /clr:nostdlib 
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr:pure /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Demo1410.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.VisualBasic.dll" /FU"c:\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Demo1410.cpp EnterPrimer.cpp /clr:nostdlib 
          Demo1410.cpp
-         Primer.cpp
+         EnterPrimer.cpp
          Создание кода...
          Для всех выходных данных обновления не требуется.
        CoreResGen:
@@ -16,11 +16,12 @@
        ResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\TEMP\Diplom\Demo1410\Debug\Demo1410.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Demo1410.ConnectionDB.resources /ASSEMBLYRESOURCE:Debug\Demo1410.CreateDB.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTask.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTheme.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTicket.resources /ASSEMBLYRESOURCE:Debug\Demo1410.Form1.resources /ASSEMBLYRESOURCE:Debug\Demo1410.Primer.resources /MANIFEST /ManifestFile:"Debug\Demo1410.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\TEMP\Diplom\Demo1410\Debug\Demo1410.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\TEMP\Diplom\Demo1410\Debug\Demo1410.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Demo1410.ConnectionDB.resources /ASSEMBLYRESOURCE:Debug\Demo1410.CreateDB.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterPrimer.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTask.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTheme.resources /ASSEMBLYRESOURCE:Debug\Demo1410.EnterTicket.resources /ASSEMBLYRESOURCE:Debug\Demo1410.Form1.resources /ASSEMBLYRESOURCE:Debug\Demo1410.Primer.resources /MANIFEST /ManifestFile:"Debug\Demo1410.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\TEMP\Diplom\Demo1410\Debug\Demo1410.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
          Debug\AssemblyInfo.obj
          Debug\ConnectionDB.obj
          Debug\CreateDB.obj
          Debug\Demo1410.obj
+         Debug\EnterPrimer.obj
          Debug\EnterTask.obj
          Debug\EnterTheme.obj
          Debug\EnterTicket.obj
@@ -37,4 +38,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:07.83
+Затраченное время: 00:00:04.18
