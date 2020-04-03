@@ -98,9 +98,7 @@
     <ClCompile Include="CreateDB.cpp" />
     <ClCompile Include="Demo1410.cpp" />
     <ClCompile Include="EnterPrimer.cpp" />
-    <ClCompile Include="EnterTask.cpp" />
     <ClCompile Include="EnterTheme.cpp" />
-    <ClCompile Include="EnterTicket.cpp" />
     <ClCompile Include="Primer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -117,19 +115,10 @@
     <ClInclude Include="EnterPrimer.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="EnterTask.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="EnterTheme.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="EnterTicket.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Form1.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Primer.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
@@ -148,21 +137,12 @@
     <EmbeddedResource Include="EnterPrimer.resx">
       <DependentUpon>EnterPrimer.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterTask.resx">
-      <DependentUpon>EnterTask.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EnterTheme.resx">
       <DependentUpon>EnterTheme.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EnterTicket.resx">
-      <DependentUpon>EnterTicket.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Primer.resx">
-      <DependentUpon>Primer.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

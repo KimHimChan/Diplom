@@ -42,12 +42,6 @@
     <ClCompile Include="EnterTheme.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="EnterTask.cpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="EnterTicket.cpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Primer.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
@@ -72,15 +66,6 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="EnterTheme.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="EnterTask.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="EnterTicket.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Primer.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="EnterPrimer.h">
